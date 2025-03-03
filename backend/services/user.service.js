@@ -1,15 +1,18 @@
-import User from "../models/user.model.js";  // ✅ Import the actual model
+import User from "../models/user.model.js";  
 
-const createUser = async ({ email, password }) => {
-    if (!email || !password) {
-        throw new Error("Email and password are required");
+export const createUser = async ({ name, email, password }) => {
+    if (!name || !email || !password) {
+        throw new Error("Name, email, and password are required");
     }
 
-    const hashedPassword = await User.hashPassword(password);  // ✅ Call static method correctly
+    const hashedPassword = await User.hashPassword(password);  
     
-    const user = await User.create({ email, password: hashedPassword }); // ✅ Use `User.create`
+    const user = await User.create({ name, email, password: hashedPassword }); 
+
+
+    if (!user) {
+        throw new Error("User creation failed");
+    }
 
     return user;
 }
-
-export { createUser };

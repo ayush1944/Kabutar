@@ -7,6 +7,7 @@ import redisClient from '../services/redis.service.js';
 export const createUserController = async (req, res) => {
 
     const errors = validationResult(req);
+    console.log(errors);
 
     if (!errors.isEmpty()) {
         return res.status(400).json({ errors: errors.array() });
@@ -40,7 +41,9 @@ export const loginController = async (req, res) => {
         if (!isMatch) {
             return res.status(404).json({ message: 'Invalid credentials' });
         }
-        const token = await user.generateJWT();           
+        const token = await user.generateJWT();      
+        delete user._doc.password;
+
 
         res.status(200).json({ user, token });
     } catch (err) {
