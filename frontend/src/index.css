@@ -1,3 +1,11 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* .home-container {
+    background: linear-gradient(270deg, #1a223075, #a688b2b6);
+}
+.main-container {
+    background: linear-gradient(90deg, #1a223075, #a688b274);
+
+} */
