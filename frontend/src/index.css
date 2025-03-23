@@ -2,10 +2,21 @@
 @tailwind components;
 @tailwind utilities;
 
-/* .home-container {
-    background: linear-gradient(270deg, #1a223075, #a688b2b6);
+* {
+  margin: 0%;
+  padding: 0%;
+  box-sizing: border-box;
 }
-.main-container {
-    background: linear-gradient(90deg, #1a223075, #a688b274);
 
-} */
+html,
+body {
+  height: 100%;
+  width: 100%;
+}
+
+.message-box{
+  scroll-behavior: smooth;
+}
+.message-box::-webkit-scrollbar{
+  display: none;
+}

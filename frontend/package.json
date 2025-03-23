@@ -13,7 +13,11 @@
     "@headlessui/react": "^2.2.0",
     "@heroicons/react": "^2.2.0",
     "@hookform/resolvers": "^4.1.2",
+    "@remixicon/react": "^4.6.0",
+    "@webcontainer/api": "^1.5.1-internal.10",
     "axios": "^1.8.1",
+    "highlight.js": "^11.11.1",
+    "markdown-to-jsx": "^7.7.4",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-hook-form": "^7.54.2",
@@ -21,6 +25,7 @@
     "react-router-dom": "^7.2.0",
     "react-toastify": "^11.0.5",
     "remixicon": "^4.6.0",
+    "socket.io-client": "^4.8.1",
     "zod": "^3.24.2"
   },
   "devDependencies": {

@@ -6,17 +6,20 @@ import Signup from '../Pages/Signup';
 import About from '../Pages/About';
 import Contact from '../Pages/Contact';
 import Profile from '../Pages/Profile';
+import Project from '../Pages/Projects'
+import UserAuth from '../auth/userAuth'
 
 function AppRoutes() {
   return (
     <BrowserRouter>
-      <Routes>
-        <Route path='/' element={<Home />} />
+      <Routes>'
+        <Route path='/' element={<UserAuth><Home /></UserAuth>} />
         <Route path='/login' element={<Login />} />
         <Route path='/signup' element={<Signup />} />
         <Route path='/about' element={<About />} />
         <Route path='/contact' element={<Contact />} />
-        <Route path='/profile' element={<Profile />} />
+        <Route path='/profile' element={<UserAuth><Profile /></UserAuth>} />
+        <Route path="/project" element={<UserAuth><Project /></UserAuth>} />
       </Routes>
     </BrowserRouter>
   );

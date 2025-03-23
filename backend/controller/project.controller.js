@@ -123,5 +123,21 @@ export const updateFileTree = async (req, res) => {
         console.log(err)
         res.status(400).json({ error: err.message })
     }
-
 }
+export const getProjectsByUser = async (req, res) => {
+    try {
+        const { userId } = req.params;
+
+        // Find projects where the user is a collaborator
+        const projects = await projectModel.find({ users: userId });
+
+        if (!projects.length) {
+            return res.status(404).json({ message: "No projects found for this user" });
+        }
+
+        res.status(200).json({ projects });
+    } catch (error) {
+        console.error("Error fetching projects:", error);
+        res.status(500).json({ message: "Server error" });
+    }
+};

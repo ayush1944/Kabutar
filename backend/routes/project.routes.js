@@ -16,6 +16,10 @@ router.get('/all',
     authMiddleWare.authUser,
     projectController.getAllProject
 )
+router.get('/user/:userId',
+    authMiddleWare.authUser,
+    projectController.getProjectsByUser
+);
 
 router.put('/add-user',
     authMiddleWare.authUser,
