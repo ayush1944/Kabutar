@@ -63,9 +63,9 @@ function Home() {
   }
 
   return (
-    <div className="min-h-screen bg-white text-gray-900">
+    <div className="min-h-screen bg-gray-900 text-slate-200">
       {/* Navbar */}
-      <nav className="bg-gray-200 p-4 shadow-md">
+      <nav className="bg-gray-800 p-4 shadow-md">
         <div className="container mx-auto flex justify-between items-center">
           <Link to="/" className="text-3xl font-bold flex items-center">
             <PiBird className="text-3xl mr-2" />
@@ -113,7 +113,7 @@ function Home() {
             {projects.map((project) => (
               <div key={project._id}
                 onClick={() => navigate(`/project`, { state: { project } })}
-                className="project flex flex-col gap-2 cursor-pointer p-4 border border-slate-300 rounded-md min-w-52 hover:bg-slate-200"
+                className="project flex flex-col gap-2 cursor-pointer p-4 border border-slate-300 rounded-md min-w-52 hover:bg-slate-700"
               >
                 <h2 className="font-semibold">{project.name}</h2>
                 <div className="flex gap-2">
@@ -141,7 +141,7 @@ function Home() {
                     />
                   </div>
                   <div className="flex justify-end">
-                    <button type="button" className="mr-2 px-4 py-2 bg-gray-300 rounded-md" onClick={() => setIsModalOpen(false)}>Cancel</button>
+                    <button type="button" className="mr-2 px-4 py-2 bg-red-500 text-white rounded-md" onClick={() => setIsModalOpen(false)}>Cancel</button>
                     <button type="submit" className="px-4 py-2 bg-blue-600 text-white rounded-md">Create</button>
                   </div>
                 </form>
