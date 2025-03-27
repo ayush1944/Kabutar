@@ -65,10 +65,9 @@ io.on('connection', socket => {
 
   socket.join(socket.roomId);
 
-    socket.on('project-message', async data => {
+  socket.on('project-message', async data => {
 
       const message = data.message;
-      
 
       const aiIsPresentInMessage = message.includes('@ai');
       socket.broadcast.to(socket.roomId).emit('project-message', data)
@@ -101,9 +100,6 @@ io.on('connection', socket => {
       socket.leave(socket.roomId)
   });
 });
-
-
-
 
 server.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
