@@ -5,7 +5,7 @@ import {initializeSocket, sendMessage, receiveMessage} from '../config/Socket';
 import { UserContext } from '../context/user.context';
 import Markdown from 'markdown-to-jsx';
 import hljs from 'highlight.js';
-import { getWebContainer } from '../config/webContainer;
+import { getWebContainer } from '../config/WebContainer;
 
 
 
