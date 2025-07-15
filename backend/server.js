@@ -10,13 +10,11 @@ import { generateResult } from './services/ai.service.js';
 const PORT = process.env.PORT || 3001;
 
 const server = http.createServer(app);
-// const allowedOrigins = [
-//   'https://kabutar-beta.vercel.app', // ✅ NO trailing slash
-//   'http://localhost:3000' // for local testing
-// ];
+
 const io = new Server(server, {
   cors : {
-  origin: "*",
+  origin: "https://kabutar-beta.vercel.app",
+    
   credentials: true
   }
 });
