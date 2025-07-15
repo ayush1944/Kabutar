@@ -4,7 +4,7 @@ Kabutar.io is a collaborative project management platform designed to help users
 
 ---
 
-![Kabutar.io Banner](assets/banner.png) <!-- Add your banner image to assets/banner.png or change the path -->
+![Kabutar.io Banner](assets/dashboard.png)
 
 ## 🎯 Features
 
