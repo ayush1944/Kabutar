@@ -143,7 +143,7 @@ This project is currently unlicensed. Please contact the repository owner for li
 
 ## 📸 Screenshots & Stickers
 
-![Project Dashboard](assets/dashboard.png)
-![Kabutar.io Sticker](assets/image.png) 
+![Project Dashboard](frontend/src/assets/dashboard.png)
+![Kabutar.io Sticker](frontend/src/assets/image.png) 
 
 ---
