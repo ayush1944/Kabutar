@@ -11,19 +11,32 @@ Kabutar.io is a collaborative project management platform designed to help users
 - 📝 **Project Creation & Listing**: Easily create new projects and view all your existing collaborations.
 - 👥 **Collaborator Management**: Add or remove team members to each project. Manage user roles and permissions for effective teamwork.
 - 💬 **Real-Time Messaging**: Communicate instantly with collaborators within each project using built-in chat functionality.
-- 🤖 **AI Assistant**: Interact with an integrated AI for smart responses and assistance directly within your project workspace.
+- 🤖 **AI Assistant**: Interact with Google's Gemini AI for smart responses and assistance directly within your project workspace.
 - 🗂️ **File Tree Management**: Organize your project files in a hierarchical structure, with the ability to update and save changes.
-- 🖥️ **Responsive Interface**: Modern, user-friendly UI built with React for fast and intuitive navigation.
+- 🖥️ **Responsive Interface**: Modern, user-friendly UI built with React and Tailwind CSS for fast and intuitive navigation.
 
 ---
 
 ## 🛠️ Tech Stack
 
-- **Frontend**: React, Axios
-- **Backend**: Node.js, Express.js
-- **Database**: MongoDB (with Mongoose for schema modeling)
-- **Socket Communication**: For real-time updates and messaging
-- **Authentication**: (Details depend on implementation, but user context and login flows are present)
+- **Frontend**: 
+  - React 19 with Vite
+  - TailwindCSS for styling
+  - React Router v7 for navigation
+  - Socket.io-client for real-time communication
+  - Axios for API requests
+  - WebContainer API for in-browser code execution
+  - React Hook Form with Zod for form validation
+
+- **Backend**: 
+  - Node.js with Express.js
+  - Socket.io for real-time updates
+  - Google Generative AI (Gemini) integration
+  - JWT for authentication
+  - Redis for token management
+
+- **Database**: 
+  - MongoDB with Mongoose ODM
 
 ---
 
@@ -31,8 +44,9 @@ Kabutar.io is a collaborative project management platform designed to help users
 
 ### Prerequisites
 
-- Node.js and npm
+- Node.js (v18+) and npm
 - MongoDB
+- Redis
 
 ### Installation
 
@@ -55,23 +69,37 @@ Kabutar.io is a collaborative project management platform designed to help users
    ```
 
 4. **Setup environment variables**
-   - Create a `.env` file in `backend` for MongoDB URI and other secrets.
-   - (Refer to source for required variables.)
+   - Create a `.env` file in `backend` directory:
+     ```
+     PORT=3000
+     JWT_SECRET=your_jwt_secret_key_here
+     MONGODB_URI=mongodb://localhost:27017/your_database_name
+     REDIS_HOST=localhost
+     REDIS_PORT=6379
+     REDIS_PASSWORD=
+     GOOGLE_API_KEY=your_google_generative_ai_api_key_here
+     NODE_ENV=development
+     ```
+   - Create a `.env` file in `frontend` directory:
+     ```
+     VITE_API_URL=http://localhost:3000
+     VITE_SOCKET_URL=http://localhost:3000
+     ```
 
 5. **Run the application**
    - Start backend server:
      ```bash
      cd backend
-     npm start
+     npm run dev
      ```
    - Start frontend:
      ```bash
      cd ../frontend
-     npm start
+     npm run dev
      ```
 
 6. **Access Kabutar.io**
-   - Open your browser and navigate to the frontend URL (usually `http://localhost:3000`).
+   - Open your browser and navigate to the frontend URL (usually `http://localhost:5173`).
 
 ---
 
@@ -79,8 +107,9 @@ Kabutar.io is a collaborative project management platform designed to help users
 
 - 🏗️ **Create a Project**: Use the "New Project" button, provide a name, and start collaborating.
 - 👤 **Add/Remove Collaborators**: Manage your teams from the project sidebar or collaborator panel.
-- 💬 **Chat & AI**: Send messages and interact with the AI assistant for enhanced productivity.
+- 💬 **Chat & AI**: Send messages and interact with the AI assistant by using @ai in your messages.
 - 🗄️ **File Management**: Organize and edit files directly within your project workspace.
+- 🧪 **In-Browser Code Execution**: Test and run code directly in the browser using WebContainer API.
 
 ---
 
