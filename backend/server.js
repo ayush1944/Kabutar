@@ -12,10 +12,10 @@ const PORT = process.env.PORT || 3001;
 const server = http.createServer(app);
 
 const io = new Server(server, {
-  cors : {
-  origin: "https://kabutar-beta.vercel.app",
-    
-  credentials: true
+    cors: {
+    origin: 'https://kabutar-beta.vercel.app',
+    methods: ['GET', 'POST'],
+    credentials: true
   }
 });
 
