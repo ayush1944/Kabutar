@@ -111,7 +111,7 @@ function Hero() {
               {/* Main Content */}
               <div className="container h-[91vh] w-full main-container p-4">
                 <h2 className="top-5 text-4xl font-semibold">{greeting}{user ? `, ${user.name}!` : '!'}</h2>
-                <h1 className="text-6xl mt-16 font-bold ml-8">Kabutar</h1>
+                <h1 className="text-6xl mt-16 font-bold ml-8">Kabutar.io</h1>
                 <p className="mt-4 text-xl ml-8">A platform to connect, share thoughts, and interact with like-minded individuals.</p>
               </div>
             </div>

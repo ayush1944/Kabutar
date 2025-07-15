@@ -1,4 +1,4 @@
-import 'dotenv/config.js'
+import 'dotenv/config.js';
 import http from 'http';
 import app from './app.js';
 import {Server} from 'socket.io';
@@ -7,16 +7,16 @@ import mongoose from 'mongoose';
 import projectModel from './models/project.model.js';
 import { generateResult } from './services/ai.service.js';
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3001;
 
 const server = http.createServer(app);
-const io = new Server(server, 
-  {
-    cors: {
-      origin: '*',
-    }
+const io = new Server(server, {
+  cors: {
+    origin: 'http://localhost:5173',
+    methods: ['GET', 'POST'],
+    credentials: true
   }
-);
+});
 
 io.use(async (socket, next) => {
 

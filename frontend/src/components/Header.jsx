@@ -29,7 +29,7 @@ function Header() {
         <div className="container mx-auto flex justify-between items-center">
           <Link to="/" className="text-3xl font-bold flex items-center">
             <PiBird className="text-3xl mr-2" />
-            Kabutar
+            Kabutar.io
           </Link>
           <div className="space-x-2 flex items-center">
             <Link to="/" className="px-3 py-2 rounded transition hover:bg-gray-400">Home</Link>

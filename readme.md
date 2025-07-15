@@ -1,10 +1,10 @@
-# Kabutar 🕊️✨
+# Kabutar.io 🕊️✨
 
-Kabutar is a collaborative project management platform designed to help users create, organize, and work together on projects seamlessly. With a focus on real-time collaboration and efficient user management, Kabutar provides a modern web-based environment for teams to communicate, manage files, and coordinate tasks.
+Kabutar.io is a collaborative project management platform designed to help users create, organize, and work together on projects seamlessly. With a focus on real-time collaboration and efficient user management, Kabutar.io provides a modern web-based environment for teams to communicate, manage files, and coordinate tasks.
 
 ---
 
-![Kabutar Banner](assets/banner.png) <!-- Add your banner image to assets/banner.png or change the path -->
+![Kabutar.io Banner](assets/banner.png) <!-- Add your banner image to assets/banner.png or change the path -->
 
 ## 🎯 Features
 
@@ -38,8 +38,8 @@ Kabutar is a collaborative project management platform designed to help users cr
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/ayush1944/Kabutar.git
-   cd Kabutar
+   git clone https://github.com/ayush1944/Kabutar.io.git
+   cd Kabutar.io
    ```
 
 2. **Install server dependencies**
@@ -70,7 +70,7 @@ Kabutar is a collaborative project management platform designed to help users cr
      npm start
      ```
 
-6. **Access Kabutar**
+6. **Access Kabutar.io**
    - Open your browser and navigate to the frontend URL (usually `http://localhost:3000`).
 
 ---
@@ -108,13 +108,13 @@ This project is currently unlicensed. Please contact the repository owner for li
 
 ---
 
-> Kabutar is built for teams who value real-time collaboration and simple project organization. Start collaborating today!
+> Kabutar.io is built for teams who value real-time collaboration and simple project organization. Start collaborating today!
 
 ---
 
 ## 📸 Screenshots & Stickers
 
 ![Project Dashboard](assets/dashboard.png) <!-- Add your screenshot to assets/dashboard.png or change the path -->
-![Kabutar Sticker](assets/sticker.png) <!-- Add your sticker image to assets/sticker.png or change the path -->
+![Kabutar.io Sticker](assets/sticker.png) <!-- Add your sticker image to assets/sticker.png or change the path -->
 
 ---

@@ -1,52 +1,52 @@
-import React, { useEffect, useState, useContext, useRef } from 'react'
+import React, { useEffect, useState, useContext, useRef } from 'react';
 import { useLocation } from 'react-router-dom';
-import axios from '../config/Axios'
-import {initializeSocket, sendMessage, receiveMessage} from '../config/socket';
+import axios from '../config/Axios';
+import {initializeSocket, sendMessage, receiveMessage} from '../config/Socket';
 import { UserContext } from '../context/user.context';
-import Markdown from 'markdown-to-jsx'
-import hljs from 'highlight.js'
-import { getWebContainer } from '../config/webcontainer'
+import Markdown from 'markdown-to-jsx';
+import hljs from 'highlight.js';
+import { getWebContainer } from '../config/WebContainer';
 
 
 
 function SyntaxHighlightedCode(props) {
-    const ref = useRef(null)
+    const ref = useRef(null);
 
     React.useEffect(() => {
         if (ref.current && props.className?.includes('lang-') && window.hljs) {
-            window.hljs.highlightElement(ref.current)
+            window.hljs.highlightElement(ref.current);
 
             // hljs won't reprocess the element unless this attribute is removed
-            ref.current.removeAttribute('data-highlighted')
+            ref.current.removeAttribute('data-highlighted');
         }
-    }, [ props.className, props.children ])
+    }, [ props.className, props.children ]);
 
-    return <code {...props} ref={ref} />
+    return <code {...props} ref={ref} />;
 }
 
 function Projects() {
     const location = useLocation();
 
-    const [ isSidePanelOpen, setIsSidePanelOpen ] = useState(false)
-    const [ isModalOpen, setIsModalOpen ] = useState(false)
-    const [ selectedUserId, setSelectedUserId ] = useState([])
-    const [ project, setProject ] = useState(location.state.project)
+    const [ isSidePanelOpen, setIsSidePanelOpen ] = useState(false);
+    const [ isModalOpen, setIsModalOpen ] = useState(false);
+    const [ selectedUserId, setSelectedUserId ] = useState([]);
+    const [ project, setProject ] = useState(location.state.project);
     const {user} = useContext(UserContext);
 
     const [users, setUsers] = useState([]);
     const [message, setMessage] = useState('');
     const [messages, setMessages] = useState([]);
 
-    const [ fileTree, setFileTree ] = useState({})
-    const [ iframeUrl, setIframeUrl ] = useState(null)
-    const [ webContainer, setWebContainer ] = useState(null)
+    const [ fileTree, setFileTree ] = useState({});
+    const [ iframeUrl, setIframeUrl ] = useState(null);
+    const [ webContainer, setWebContainer ] = useState(null);
 
 
 
-    const [ openFiles, setOpenFiles ] = useState([])
-    const [ currentFile, setCurrentFile ] = useState(null)
+    const [ openFiles, setOpenFiles ] = useState([]);
+    const [ currentFile, setCurrentFile ] = useState(null);
 
-    const [ runProcess, setRunProcess ] = useState(null)
+    const [ runProcess, setRunProcess ] = useState(null);
 
     const messageBox = React.createRef();
     
@@ -63,20 +63,20 @@ function Projects() {
         });
 
 
-    }
+    };
     function addCollaborators() {
 
         axios.put("/projects/add-user", {
             projectId: location.state.project._id,
             users: Array.from(selectedUserId)
         }).then(res => {
-            setIsModalOpen(false)
+            setIsModalOpen(false);
 
         }).catch(err => {
-            console.log(err)
-        })
+            console.log(err);
+        });
 
-    }
+    };
     const removeCollaborators = (userId) => {
         // Filter out the deleted user from the project users list
         const updatedUsers = project.users.filter(user => user._id !== userId);
@@ -90,7 +90,7 @@ function Projects() {
 
     function WriteAiMessage(message) {
 
-        const messageObject = JSON.parse(message)
+        const messageObject = JSON.parse(message);
 
         return (
             <div
@@ -104,60 +104,60 @@ function Projects() {
                         },
                     }}
                 />
-            </div>)
-    }
+            </div>);
+    };
 
     useEffect(() => {
         axios.get(`/projects/get-project/${location.state.project._id}`).then(res => {
 
-            console.log(res.data.project)
+            console.log(res.data.project);
 
-            setProject(res.data.project)
-            setFileTree(res.data.project.fileTree || {})
+            setProject(res.data.project);
+            setFileTree(res.data.project.fileTree || {});
         }).catch(err => {
-            console.log(err)
+            console.log(err);
         });
 
 
         axios.get('/users/all').then(res => {
-            setUsers(res.data.users)
+            setUsers(res.data.users);
         }).catch(err => {
-            console.log(err)
-        })
+            console.log(err);
+        });
 
-        initializeSocket(project._id)
+        initializeSocket(project._id);
 
         if (!webContainer) {
             getWebContainer().then(container => {
-                setWebContainer(container)
-                console.log("container started")
-            })
+                setWebContainer(container);
+                console.log("container started");
+            });
         }
 
 
         receiveMessage('project-message', data => {
 
-            console.log(data)
+            console.log(data);
             
             if (data.sender._id == 'ai') {
 
 
-                const message = JSON.parse(data.message)
+                const message = JSON.parse(data.message);
 
-                console.log(message)
+                console.log(message);
 
-                webContainer?.mount(message.fileTree)
+                webContainer?.mount(message.fileTree);
 
                 if (message.fileTree) {
-                    setFileTree(message.fileTree || {})
+                    setFileTree(message.fileTree || {});
                 }
-                setMessages(prevMessages => [ ...prevMessages, data ]) // Update messages state
+                setMessages(prevMessages => [ ...prevMessages, data ]); // Update messages state
             } else {
 
 
-                setMessages(prevMessages => [ ...prevMessages, data ]) // Update messages state
+                setMessages(prevMessages => [ ...prevMessages, data ]); // Update messages state
             }
-        })
+        });
 
     }, []);
 
